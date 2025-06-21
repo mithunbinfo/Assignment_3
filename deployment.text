@@ -1,0 +1,13 @@
+1: vercel
+
+2: vercel cli
+   1: npm i -g vercel
+   2: vercel -vercel
+   3: vercel login
+   4: vercel --prod
+   5: y
+   6: 
+
+
+
+3: github 
