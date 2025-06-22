@@ -56,4 +56,12 @@ bookSchema.methods.updateAvailability = function () {
         this.available = true;
     }
 };
+bookSchema.post("save", function (doc, next) {
+    console.log(`Book saved: ${doc.title}`);
+    next();
+});
+bookSchema.pre("find", function (next) {
+    console.log("Inside pre find hook");
+    next();
+});
 exports.Book = (0, mongoose_1.model)("Book", bookSchema);

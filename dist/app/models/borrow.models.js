@@ -20,4 +20,12 @@ exports.borrowSchema = new mongoose_1.Schema({
     versionKey: false,
     timestamps: true,
 });
+exports.borrowSchema.post("save", function (doc, next) {
+    console.log("%s has been saved", doc._id);
+    next();
+});
+exports.borrowSchema.pre("find", function (next) {
+    console.log("Inside pre find hook");
+    next();
+});
 exports.Borrow = (0, mongoose_1.model)("Borrow", exports.borrowSchema);
