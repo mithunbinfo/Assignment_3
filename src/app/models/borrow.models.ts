@@ -23,4 +23,14 @@ export const borrowSchema = new Schema<IBorrow>(
   }
 );
 
+borrowSchema.post("save", function (doc, next) {
+  console.log("%s has been saved", doc._id);
+  next();
+});
+
+borrowSchema.pre("find", function (next) {
+  console.log("Inside pre find hook");
+  next();
+});
+
 export const Borrow = model("Borrow", borrowSchema);

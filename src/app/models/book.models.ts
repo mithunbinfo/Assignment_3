@@ -59,4 +59,14 @@ bookSchema.methods.updateAvailability = function () {
   }
 };
 
+bookSchema.post("save", function (doc, next) {
+  console.log(`Book saved: ${doc.title}`);
+  next();
+});
+
+bookSchema.pre("find", function (next) {
+  console.log("Inside pre find hook");
+  next();
+});
+
 export const Book = model("Book", bookSchema);
